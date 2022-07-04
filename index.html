@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>videodownloader</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+   <header>
+        <h1 class="title"><i class="fa fa-download" aria-hidden="true"></i>Youtube Downloader</h1>
+        <!-- <ul>
+            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        </ul> -->
+    </header>
+    <div class="main">
+        <section>
+        <h1>youtube Downloader</h1>
+        <div class="link-container">
+            <label for="">Video link</label>
+            <input type="text" class="link" name="link" placeholder="enter your link" required>
+        </div>
+        <div class="format-container">
+            <label for="">formate:</label>
+            <select name="" id="" class="format" required>
+                <option selected disabled> Select video format</option>
+                <option value="mp3">Mp3</option>
+                <option value="mp4a">144</option>
+                <option value="360">360</option>
+                <option value="480">480</option>
+                <option value="720">720</option>
+                <option value="1080">1080</option>    
+            </select>
+        </div>
+        <div class="button-container">
+            <button class="btn" type="submit">Start</button>
+        </div>
+    </section>
+    </div>
+    
+    <script>
+        $(".btn").click(function(){
+            var link = $(".link").val();
+            var format =$(".format").children("option:selected").val();
+            var src=""+link+"="+format+"";
+            download(link,format);     
+        });
+        function download(link,format){
+            $('.button-container').html('<iframe style ="height:50px; border:none;overflow:hidden;" src="https://loader.to/api/button/?url='+ link+'&f='+format+'"><iframe>');
+        }
+    </script>
+    
+</body>
+</html>
